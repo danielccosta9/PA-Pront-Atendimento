@@ -135,7 +135,7 @@ const SimpleForm = () => {
         setValues({});
       })
     alert('Cadastrado com sucesso!');
-    window.location.reload(false);
+    setValues({});
   }
 
 
@@ -207,7 +207,7 @@ const SimpleForm = () => {
               fullWidth
               onChange={handleChange}
               value={values.coren || ''}
-              validators={["required"]}
+              validators={["required", "minStringLength: 12", "maxStringLength: 12", "matchRegexp:^[0-9]{2}.[0-9]{3}.[0-9]{3}-[0-9]{1}$"]}
               InputProps={{
                 inputComponent: InputCoren,
               }}
