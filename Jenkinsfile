@@ -3,12 +3,15 @@ pipeline
     agent any
     stages
     {
-        stage('Build')
+        stage('Install')
         {
             steps
             {
                 sh 'yarn install'
             }
+        }
+        stage('Build')
+        {
             steps
             {
                 sh 'yarn build'
