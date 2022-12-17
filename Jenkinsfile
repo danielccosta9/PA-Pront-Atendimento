@@ -3,11 +3,18 @@ pipeline
     agent any
     stages
     {
+        stage('Install')
+        {
+            steps
+            {
+                sh 'yarn install'
+            }
+        }
         stage('Build')
         {
             steps
             {
-                bat 'yarn build'
+                sh 'yarn build'
             }
         }
     }
