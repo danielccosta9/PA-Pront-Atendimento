@@ -1,17 +1,11 @@
-pipeline { 
-     agent any stage 
-     { 
-        stage("Build") { 
-            steps { 
-                sh "sudo yarn install" 
-                sh "sudo yarn build" 
-            } 
-        } 
-        stage("Deploy") { 
-            steps { 
-                sh "sudo rm -rf /var/www/ jenkins-react-app" 
-                sh "sudo cp -r ${WORKSPACE}/build/ /var/www/jenkins-react-app/" 
-            } 
-        } 
-    } 
+node {
+    stage('Build') {
+        echo 'Building...'
+    }
+    stage('Test') {
+        echo 'Testing...'
+    }
+    stage('Deploy') {
+        echo 'Deploying...'
+    }
 }
