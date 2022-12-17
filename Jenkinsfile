@@ -3,25 +3,14 @@ pipeline
     agent any
     stages
     {
-        stage('Build')
+        stage('Build Image')
         {
             steps
             {
-                echo 'Building...'
-            }
-        }
-        stage('Test')
-        {
-            steps
-            {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy')
-        {
-            steps
-            {
-                echo 'Deploying...'
+                script
+                {
+                    dockerapp = docker.build("pront-atendimrnto/imagename:${env.BUILD_ID}", "-f Dockerfile .")
+                }
             }
         }
     }
