@@ -1,11 +1,11 @@
 node {
-    estage('step1'){
-      echo 'script1'
-    {
-    estage('step2'){
-      echo 'script2'
-    {
-    estage('step3'){
-      echo 'script3'
-    {
+    stage('Build') {
+        echo 'Building...'
+    }
+    stage('Test') {
+        echo 'Testing...'
+    }
+    stage('Deploy') {
+        echo 'Deploying...'
+    }
 }
