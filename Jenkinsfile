@@ -17,11 +17,11 @@ pipeline
                 sh 'yarn build'
             }
         }
-        stage('Deploy')
+        stage('Test')
         {
             steps
             {
-                sh 'yarn deploy'
+                sh 'yarn test'
             }
         }
     }
