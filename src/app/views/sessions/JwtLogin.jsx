@@ -33,22 +33,22 @@ const JWTRoot = styled(JustifyBox)(() => ({
 
 // inital login credentials
 const initialValues = {
-  email: 'daniel@suc.com',
-  password: '123456',
-  remember: true,
+  email: '',
+  password: '',
+  remember: false,
 };
 
 // form field validation schema
 const validationSchema = Yup.object().shape({
   password: Yup
     .string()
-    .min(6, 'Password must be 6 character length')
-    .required('Password is required!'),
+    .min(6, 'Senha deve ter no mínimo 6 caracteres!')
+    .required('Senha é obrigatória!'),
 
   email: Yup
     .string()
-    .email('Invalid Email address')
-    .required('Email is required!'),
+    .email('Email inválido!')
+    .required('Email é obrigatório!'),
 });
 
 const JwtLogin = () => {

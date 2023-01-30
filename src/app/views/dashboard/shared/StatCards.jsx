@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import {
   Box,
+  Button,
   Card,
   Grid,
   Icon,
@@ -50,7 +51,7 @@ const StatCards = () => {
 
 
   const cardList = [
-    { name: 'Nº de Pacientes Cadastrados', amount: quantidadePaciente.length, icon: 'folder_shared' },
+    { name: 'Nº de Pacientes Cadastrados', amount: quantidadePaciente.length, icon: 'folder_shared', link: '/paciente/listar' },
     { name: 'This week Sales', amount: '$80,500', icon: 'attach_money' },
     { name: 'Inventory Status', amount: '8.5% Stock Surplus', icon: 'store' },
     { name: 'Orders to deliver', amount: '305 Orders', icon: 'shopping_cart' },
@@ -66,6 +67,7 @@ const StatCards = () => {
               <Box ml="12px">
                 <Small>{item.name}</Small>
                 <Heading>{item.amount}</Heading>
+                <Button variant="contained" color="primary" href={item.link}>Ver Pacientes</Button>
               </Box>
             </ContentBox>
           </StyledCard>
