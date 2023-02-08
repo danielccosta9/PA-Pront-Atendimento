@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import ModalEdit from "../../../../components/Modals/Paciente/inedex";
 
 import {
+    Box,
     styled,
     Table,
     TableBody,
@@ -16,11 +17,6 @@ import {
     Icon,
 } from "@mui/material";
 
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-
 const StyledTable = styled(Table)(() => ({
     whiteSpace: "pre",
     "& thead": {
@@ -31,18 +27,6 @@ const StyledTable = styled(Table)(() => ({
     },
 }));
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-
 const PaginationTable = () => {
     const baseURL = "https://makeup-api.herokuapp.com/api/v1/products.json";
     const [page, setPage] = useState(0);
@@ -50,24 +34,10 @@ const PaginationTable = () => {
     const [paciente, setPaciente] = useState([]);
     const [busca, setBusca] = useState('');
 
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
     useEffect(() => {
         Axios.get(baseURL)
             .then(json => setPaciente(json.data))
     }, [])
-
-    const handleEdit = (id) => {
-        Axios.put(`${baseURL}/${id}`)
-            .then(() => {
-                const editPaciente = paciente.filter((paciente) => paciente.id !== id);
-                setPaciente(editPaciente);
-            })
-
-    };
-
 
     const handleDelete = (id) => {
         Axios.delete(`${baseURL}/${id}`)
@@ -77,14 +47,6 @@ const PaginationTable = () => {
             })
         alert("Excluído com sucesso!");
         window.location.reload();
-    };
-
-    const handleUpdate = (id) => {
-        Axios.put(`${baseURL}/${id}`)
-            .then(() => {
-                const updatePaciente = paciente.filter((paciente) => paciente.id !== id);
-                setPaciente(updatePaciente);
-            })
     };
 
     const quantidadePaciente = paciente;
@@ -148,7 +110,7 @@ const PaginationTable = () => {
                                 <TableCell align="center">{subscriber.responsavel}</TableCell>
                                 <TableCell align="center">{subscriber.residencia}</TableCell>
                                 <TableCell align="right">
-                                    <ModalEdit />
+                                    <ModalEdit id={subscriber.id} />
                                 </TableCell>
                                 <TableCell align="right">
                                     <IconButton

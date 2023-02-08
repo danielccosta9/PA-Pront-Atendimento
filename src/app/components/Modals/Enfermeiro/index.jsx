@@ -75,12 +75,12 @@ const InputCpf = React.forwardRef(function InputCpf(props, ref) {
     );
 });
 
-const InputSus = React.forwardRef(function InputCpf(props, ref) {
+const InputCoren = React.forwardRef(function InputCoren(props, ref) {
     const { onChange, ...other } = props;
     return (
         <IMaskInput
             {...other}
-            mask="000 0000 0000 0000"
+            mask="00.000.000-0"
             definitions={{
                 '#': /[1-9]/,
             }}
@@ -128,7 +128,7 @@ InputCpf.propTypes = {
     onChange: PropTypes.func.isRequired,
 };
 
-InputSus.propTypes = {
+InputCoren.propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
 };
@@ -186,24 +186,13 @@ export default function BasicModal() {
                                     required
                                     id="nome"
                                     name="nome"
-                                    label="Nome do Paciente"
+                                    label="Nome do Enfermeiro"
                                     fullWidth
                                     value={values.nome || ""}
                                     onChange={handleChange}
                                     errorMessages={"Nome inválido"}
                                     validators={["required", "minStringLength: 3", "maxStringLength: 100", "matchRegexp:^[a-zA-ZÀ-ú ]*$"]}
-                                />
-                                <TextField
-                                    type="text"
-                                    name="responsavel"
-                                    id="responsavel"
-                                    value={values.responsavel || ""}
-                                    onChange={handleChange}
-                                    errorMessages={"Nome inválido"}
-                                    label="Responsável"
-                                    validators={["required", "minStringLength: 3", "maxStringLength: 100", "matchRegexp:^[a-zA-ZÀ-ú ]+$"]}
-                                    fullWidth
-                                    required
+
                                 />
                                 <TextField
                                     required
@@ -212,11 +201,10 @@ export default function BasicModal() {
                                     id="standard-basic"
                                     value={values.residencia || ""}
                                     onChange={handleChange}
-                                    errorMessages={["Este campo é obrigatório"]}
+                                    errorMessages={"Este campo é obrigatório"}
                                     label="Residencia"
                                     validators={["required", "minStringLength: 3", "maxStringLength: 100"]}
                                 />
-
                                 <AutoComplete
                                     options={suggestions}
                                     getOptionLabel={(option) => option.label}
@@ -225,7 +213,6 @@ export default function BasicModal() {
                                     )}
                                     onChange={(event, value) => setValues(values => ({ ...values, sexo: value.label }))}
                                 />
-
                             </Grid>
                             <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2 }}>
                                 <TextField
@@ -237,29 +224,26 @@ export default function BasicModal() {
                                     fullWidth
                                     onChange={handleChange}
                                     value={values.cpf || ''}
-                                    validators={["required", "minStringLength: 14", "maxStringLength: 14", "matchRegexp:^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$"]}
                                     errorMessages={"CPF inválido"}
+                                    validators={["required", "minStringLength: 14", "maxStringLength: 14", "matchRegexp:^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$"]}
                                     InputProps={{
                                         inputComponent: InputCpf,
                                     }}
                                 />
-
                                 <TextField
                                     sx={{ width: '30ch' }}
                                     required
-                                    id="sus"
-                                    name="sus"
-                                    label="Número do SUS"
+                                    id="coren"
+                                    name="coren"
+                                    label="COREN"
                                     fullWidth
                                     onChange={handleChange}
-                                    value={values.sus || ''}
-                                    validators={["required", "minStringLength: 18", "maxStringLength: 18", "matchRegexp:^[0-9]{3} [0-9]{4} [0-9]{4} [0-9]{4}$"]}
-                                    errorMessages={"SUS inválido"}
+                                    value={values.coren || ''}
+                                    validators={["required", "minStringLength: 12", "maxStringLength: 12", "matchRegexp:^[0-9]{2}.[0-9]{3}.[0-9]{3}-[0-9]{1}$"]}
                                     InputProps={{
-                                        inputComponent: InputSus,
+                                        inputComponent: InputCoren,
                                     }}
                                 />
-
                                 <TextField
                                     sx={{ width: '30ch' }}
                                     required
@@ -269,7 +253,7 @@ export default function BasicModal() {
                                     fullWidth
                                     onChange={handleChange}
                                     value={values.telefone || ''}
-                                    validators={["required", "minStringLength: 15", "maxStringLength: 15"]}
+                                    validators={["required", "minStringLength: 15", "maxStringLength: 15",]}
                                     errorMessages={"Telefone inválido"}
                                     InputProps={{
                                         inputComponent: InputPhone,
@@ -287,7 +271,7 @@ export default function BasicModal() {
                                     id="formatted-text-mask-input"
                                 />
                             </Grid>
-                        </Grid >
+                        </Grid>
                         <Button
                             color="primary"
                             variant="contained"

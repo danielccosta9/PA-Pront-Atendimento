@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import { useState, useEffect, useMemo } from "react";
 
+import ModalEdit from '../../../../components/Modals/Recepcionista/index'
+
 import {
     Box,
     styled,
@@ -37,16 +39,6 @@ const PaginationTable = () => {
         Axios.get(baseURL)
             .then(json => setPaciente(json.data))
     }, [])
-
-    const handleEdit = (id) => {
-        Axios.put(`${baseURL}/${id}`)
-            .then(() => {
-                const editPaciente = paciente.filter((paciente) => paciente.id !== id);
-                setPaciente(editPaciente);
-            })
-
-    };
-
 
     const handleDelete = (id) => {
         Axios.delete(`${baseURL}/${id}`)
@@ -119,11 +111,7 @@ const PaginationTable = () => {
                                 <TableCell align="center">{subscriber.responsavel}</TableCell>
                                 <TableCell align="center">{subscriber.residencia}</TableCell>
                                 <TableCell align="right">
-                                    <IconButton
-                                        onClick={handleEdit.bind(this, subscriber.paciente_id)}
-                                    >
-                                        <Icon color="primary">edit</Icon>
-                                    </IconButton>
+                                    <ModalEdit id={subscriber.paciente_id} />
                                 </TableCell>
                                 <TableCell align="right">
                                     <IconButton

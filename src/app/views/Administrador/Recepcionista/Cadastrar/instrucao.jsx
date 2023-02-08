@@ -7,20 +7,20 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 
 function getSteps() {
-  return ["Primeiro passo para cadastrar um paciente", "Segundo passo para cadastrar um paciente", "Salvar"];
+  return ["Primeiro passo para cadastrar um Recepcionista", "Segundo passo para cadastrar um Recepcionista", "Salvar"];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return `Preencha todos os campos: Nome do Paciente, Comorbidade, Bairro, CPF, Data de Nascimento e Telefone.`;
+      return `Preencha todos os campos: Nome do Recepcionista, Responsável, Residência, CPF, SUS, Sexo, Data de Nascimento e Telefone.`;
 
     case 1:
       return `Verifique se todos os campos foram preenchidos corretamento antes de Salvar.`;
 
     case 2:
-      return `Depois de verificar todos os campos com os dados do paciente, clica no botão Salvar para cadastrar o paciente.
-      Depois de Salvar, o paciente estará cadastrado no sistema e poderá ser consultado na tela de Listas de Pacientes.`;
+      return `Depois de verificar todos os campos com os dados do Recepcionista, clica no botão Salvar, para cadastrar o Recepcionista.
+      Depois de Salvar, o Recepcionista estará cadastrado no sistema e poderá ser consultado na tela de Listas de Recepcionistas.`;
 
     default:
       return `Default`;

@@ -7,20 +7,20 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 
 function getSteps() {
-  return ["Primeiro passo para cadastrar um paciente", "Segundo passo para cadastrar um paciente", "Salvar"];
+  return ["Primeiro passo para cadastrar um Enfermeiro", "Segundo passo para cadastrar um Enfermeiro", "Salvar"];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return `Preencha todos os campos: Nome do Enfermeiro, Endereço do Enfermeiro, CPF, COREN, Data de Nascimento e Telefone.`;
+      return `Preencha todos os campos: Nome do Enfermeiro, Residência, CPF, COREN, Sexo, Data de Nascimento e Telefone.`;
 
     case 1:
       return `Verifique se todos os campos foram preenchidos corretamento antes de Salvar.`;
 
     case 2:
-      return `Depois de verificar todos os campos com os dados do paciente, clica no botão Salvar para cadastrar o paciente.
-      Depois de Salvar, o paciente estará cadastrado no sistema e poderá ser consultado na tela de Listas de Enfermeiro.`;
+      return `Depois de verificar todos os campos com os dados do Enfermeiro, clica no botão Salvar para cadastrar o Enfermeiro.
+      Depois de Salvar, o Enfermeiro estará cadastrado no sistema e poderá ser consultado na tela de Listas de Enfermeiro.`;
 
     default:
       return `Default`;

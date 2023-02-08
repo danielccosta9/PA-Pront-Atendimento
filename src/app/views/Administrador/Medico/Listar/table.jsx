@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import { useState, useEffect, useMemo } from "react";
 
+import ModalEdit from '../../../../components/Modals/Medico/index'
+
 import {
     Box,
     styled,
@@ -37,16 +39,6 @@ const PaginationTable = () => {
         Axios.get(baseURL)
             .then(json => setPaciente(json.data))
     }, [])
-
-    const handleEdit = (id) => {
-        Axios.put(`${baseURL}/${id}`)
-            .then(() => {
-                const editPaciente = paciente.filter((paciente) => paciente.id !== id);
-                setPaciente(editPaciente);
-            })
-
-    };
-
 
     const handleDelete = (id) => {
         Axios.delete(`${baseURL}/${id}`)
@@ -95,10 +87,10 @@ const PaginationTable = () => {
                         <TableCell align="left">Nome</TableCell>
                         <TableCell align="center">Nascimento</TableCell>
                         <TableCell align="center">CPF</TableCell>
-                        <TableCell align="center">SUS</TableCell>
+                        <TableCell align="center">CRM</TableCell>
+                        <TableCell align="center">Especialidade</TableCell>
                         <TableCell align="center">Telefone</TableCell>
                         <TableCell align="center">Sexo</TableCell>
-                        <TableCell align="center">Responsável</TableCell>
                         <TableCell align="center">Residência</TableCell>
                         <TableCell align="right">Editar</TableCell>
                         <TableCell align="right">Excluir</TableCell>
@@ -113,17 +105,13 @@ const PaginationTable = () => {
                                 <TableCell align="left">{subscriber.name}</TableCell>
                                 <TableCell align="center">{new Date(subscriber.created_at).toLocaleDateString('pt-BR')}</TableCell>
                                 <TableCell align="center">{subscriber.cpf}</TableCell>
-                                <TableCell align="center">{subscriber.numero_sus}</TableCell>
+                                <TableCell align="center">{subscriber.numero_crm}</TableCell>
+                                <TableCell align="center">{subscriber.especialidade}</TableCell>
                                 <TableCell align="center">{subscriber.telefone}</TableCell>
                                 <TableCell align="center">{subscriber.sexo}</TableCell>
-                                <TableCell align="center">{subscriber.responsavel}</TableCell>
                                 <TableCell align="center">{subscriber.residencia}</TableCell>
                                 <TableCell align="right">
-                                    <IconButton
-                                        onClick={handleEdit.bind(this, subscriber.paciente_id)}
-                                    >
-                                        <Icon color="primary">edit</Icon>
-                                    </IconButton>
+                                    <ModalEdit id={subscriber.paciente_id} />
                                 </TableCell>
                                 <TableCell align="right">
                                     <IconButton
