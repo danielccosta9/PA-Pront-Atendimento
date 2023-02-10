@@ -35,21 +35,19 @@ export const navigations = [
 
   { label: 'Enfermeiro', type: 'label' },
   {
-    name: 'Enfermeiro',
+    name: 'Triagem',
     icon: 'local_hospital',
     children: [
-      { name: 'Cadastrar', iconText: 'A', path: '/paciente/cadastrar' },
-      { name: 'Listar', iconText: 'B', path: '/paciente/listar' },
+      { name: 'Formulário', iconText: 'T', path: '/triagem/formulario-triagem' },
     ],
   },
 
   { label: 'Médico', type: 'label' },
   {
-    name: 'Médico',
+    name: 'Consulta',
     icon: 'business_center',
     children: [
-      { name: 'Cadastrar', iconText: 'A', path: '/paciente/cadastrar' },
-      { name: 'Listar', iconText: 'B', path: '/paciente/listar' },
+      { name: 'Formulário', iconText: 'C', path: '/consulta/formulario-consulta' },
     ],
   },
 

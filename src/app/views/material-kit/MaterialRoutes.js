@@ -37,6 +37,15 @@ const AppFormCadPaciente = Loadable(lazy(() => import('../Recepcionista/Paciente
 // Caminho Listar Pacientes
 const AppListPaciente = Loadable(lazy(() => import('../Recepcionista/Paciente/Listar/index')));
 
+// Triagem
+// Caminho Formulario Triagem
+const AppFormTriagem = Loadable(lazy(() => import('../Triagem/Formulario/index')));
+
+// Consulta
+// Caminho Formulario Consulta
+const AppFormConsulta = Loadable(lazy(() => import('../Consulta/Formulario/index')))
+
+
 const materialRoutes = [
   {
     path: '/material/table',
@@ -121,6 +130,17 @@ const materialRoutes = [
     element: <AppListRecepcionista />,
   },
 
+  // Triagem
+  {
+    path: '/triagem/formulario-triagem',
+    element: <AppFormTriagem />,
+  },
+
+  // Consulta
+  {
+    path: '/consulta/formulario-consulta',
+    element: <AppFormConsulta />,
+  },
 
   // Recepcionista
   {

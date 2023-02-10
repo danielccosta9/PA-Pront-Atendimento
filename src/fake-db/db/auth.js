@@ -11,7 +11,7 @@ const userList = [
     name: 'Daniel Cordeiro',
     username: 'daniel_cordeiro',
     email: 'daniel@suc.com',
-    age: 25,
+    age: 23,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const userList = [
     name: 'Joyce Pinheiro',
     username: 'joyce_pinheiro',
     email: 'joyce@suc.com',
-    age: 25,
+    age: 21,
   }
 ];
 
