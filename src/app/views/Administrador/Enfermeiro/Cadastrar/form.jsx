@@ -69,22 +69,6 @@ const InputCoren = React.forwardRef(function InputCoren(props, ref) {
   );
 });
 
-const InputDate = React.forwardRef(function InputDate(props, ref) {
-  const { onChange, ...other } = props;
-  return (
-    <IMaskInput
-      {...other}
-      mask="00/00/0000"
-      definitions={{
-        '#': /[1-9]/,
-      }}
-      inputRef={ref}
-      onAccept={(value) => onChange({ target: { name: props.name, value } })}
-      overwrite
-    />
-  );
-});
-
 const InputPhone = React.forwardRef(function InputPhone(props, ref) {
   const { onChange, ...other } = props;
   return (
@@ -107,11 +91,6 @@ InputCpf.propTypes = {
 };
 
 InputCoren.propTypes = {
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
-
-InputDate.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

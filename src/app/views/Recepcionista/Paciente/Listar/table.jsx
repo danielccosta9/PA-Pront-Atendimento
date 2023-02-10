@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { useState, useEffect, useMemo } from "react";
 
-import ModalEdit from "../../../../components/Modals/Paciente/inedex";
+import ModalEdit from "../../../Modals/Paciente/inedex";
 
 import {
     Box,
