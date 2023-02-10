@@ -28,7 +28,7 @@ const StyledTable = styled(Table)(() => ({
 }));
 
 const PaginationTable = () => {
-    const baseURL = "https://makeup-api.herokuapp.com/api/v1/products.json";
+    const baseURL = "http://192.168.1.104:8080/recepcionistas";
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [paciente, setPaciente] = useState([]);
@@ -64,7 +64,7 @@ const PaginationTable = () => {
 
     const filteredPaciente = useMemo(() => {
         return paciente.filter((paciente) => {
-            return paciente.name.toLowerCase().includes(busca.toLowerCase());
+            return paciente.nome.toLowerCase().includes(busca.toLowerCase());
         });
     }, [busca, paciente]);
 
@@ -102,8 +102,8 @@ const PaginationTable = () => {
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((subscriber, index) => (
                             <TableRow key={index} hover>
-                                <TableCell align="left">{subscriber.name}</TableCell>
-                                <TableCell align="center">{new Date(subscriber.created_at).toLocaleDateString('pt-BR')}</TableCell>
+                                <TableCell align="left">{subscriber.nome}</TableCell>
+                                <TableCell align="center">{new Date(subscriber.data_nascimento).toLocaleDateString('pt-BR')}</TableCell>
                                 <TableCell align="center">{subscriber.cpf}</TableCell>
                                 <TableCell align="center">{subscriber.numero_sus}</TableCell>
                                 <TableCell align="center">{subscriber.telefone}</TableCell>

@@ -33,7 +33,7 @@ const AutoComplete = styled(Autocomplete)(() => ({
 
 const suggestions = [
   { label: 'MASCULINO' },
-  { label: 'FEIMININO' },
+  { label: 'FEMININO' },
   { label: 'OUTROS' },
 ];
 
@@ -122,7 +122,7 @@ InputPhone.propTypes = {
 };
 
 const SimpleForm = () => {
-  const baseURL = "http://10.0.2.199:8080/enfermeiros";
+  const baseURL = "http://192.168.1.104:8080/recepcionistas";
   const [values, setValues] = useState({});
 
   console.log(values);

@@ -152,7 +152,7 @@ export default function BasicModal() {
     const [values, setValues] = useState({});
 
     const edit = (id) => {
-        Axios.get(`http://localhost:8080/paciente/${id}`)
+        Axios.get(`http://192.168.1.104:8080/paciente/${id}`)
             .then((response) => {
                 setValues(response.data);
             })

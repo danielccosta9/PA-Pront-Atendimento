@@ -52,9 +52,6 @@ const StatCards = () => {
 
   const cardList = [
     { name: 'Nº de Pacientes Cadastrados', amount: quantidadePaciente.length, icon: 'folder_shared', link: '/paciente/listar' },
-    { name: 'This week Sales', amount: '$80,500', icon: 'attach_money' },
-    { name: 'Inventory Status', amount: '8.5% Stock Surplus', icon: 'store' },
-    { name: 'Orders to deliver', amount: '305 Orders', icon: 'shopping_cart' },
   ];
 
   return (

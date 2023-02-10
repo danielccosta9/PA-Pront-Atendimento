@@ -34,7 +34,7 @@ const AutoComplete = styled(Autocomplete)(() => ({
 
 const suggestions = [
   { label: 'MASCULINO' },
-  { label: 'FEIMININO' },
+  { label: 'FEMININO' },
   { label: 'OUTROS' },
 ];
 
@@ -123,7 +123,7 @@ InputPhone.propTypes = {
 };
 
 const SimpleForm = () => {
-  const baseURL = "http://10.0.2.199:8080/enfermeiros";
+  const baseURL = "http://192.168.1.104:8080/pacientes";
   const [values, setValues] = useState({});
 
   console.log(values);
@@ -218,12 +218,12 @@ const SimpleForm = () => {
             <TextField
               sx={{ width: '30ch' }}
               required
-              id="sus"
-              name="sus"
+              id="numero_sus"
+              name="numero_sus"
               label="Número do SUS"
               fullWidth
               onChange={handleChange}
-              value={values.sus || ''}
+              value={values.numero_sus || ''}
               validators={["required", "minStringLength: 18", "maxStringLength: 18", "matchRegexp:^[0-9]{3} [0-9]{4} [0-9]{4} [0-9]{4}$"]}
               errorMessages={"SUS inválido"}
               InputProps={{
