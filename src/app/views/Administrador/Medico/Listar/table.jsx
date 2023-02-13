@@ -28,7 +28,7 @@ const StyledTable = styled(Table)(() => ({
 }));
 
 const PaginationTable = () => {
-    const baseURL = "http://192.168.1.104:8080/medicos";
+    const baseURL = "http://localhost:3000/medicos";
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [paciente, setPaciente] = useState([]);
@@ -39,16 +39,6 @@ const PaginationTable = () => {
         Axios.get(baseURL)
             .then(json => setPaciente(json.data))
     }, [])
-
-    const handleDelete = (id) => {
-        Axios.delete(`${baseURL}/${id}`)
-            .then(() => {
-                const deletePaciente = paciente.filter((paciente) => paciente.id !== id);
-                setPaciente(deletePaciente);
-            })
-        alert("Excluído com sucesso!");
-        window.location.reload();
-    };
 
     const quantidadePaciente = paciente;
 
@@ -115,7 +105,14 @@ const PaginationTable = () => {
                                 </TableCell>
                                 <TableCell align="right">
                                     <IconButton
-                                        onClick={handleDelete.bind(this, subscriber.paciente_id)}
+                                        onClick={() => {
+                                            Axios.delete(`${baseURL}/${subscriber.id}`)
+                                                .then(() => {
+                                                    setPaciente(paciente.filter((paciente) => paciente.id !== subscriber.id));
+                                                }
+                                                )
+                                            alert("Excluído com sucesso!");
+                                        }}
                                     >
                                         <Icon color="error">delete</Icon>
                                     </IconButton>

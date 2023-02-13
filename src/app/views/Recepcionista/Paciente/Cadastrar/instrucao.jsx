@@ -13,7 +13,7 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return `Preencha todos os campos: Nome do Paciente, Comorbidade, Bairro, CPF, Data de Nascimento e Telefone.`;
+      return `Preencha todos os campos: Nome do Paciente, Responsável, Residencia, Sexo, CPF, SUS, Telefone e Data de Nascimento.`;
 
     case 1:
       return `Verifique se todos os campos foram preenchidos corretamento antes de Salvar.`;

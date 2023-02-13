@@ -122,7 +122,7 @@ InputPhone.propTypes = {
 };
 
 const SimpleForm = () => {
-  const baseURL = "http://192.168.1.104:8080/medicos";
+  const baseURL = "http://localhost:3000/medicos";
   const [values, setValues] = useState({});
 
   console.log(values);
